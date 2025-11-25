@@ -64,19 +64,27 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>
-                            <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                            <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
-                        </td>
+                    <!--Conexion con la base de datos y mostrar los registros existentes-->
+                    <?php
+                    include "modelo/conexion.php";
+                    $sql=$conexion->query("select * from persona");
+                    while($datos=$sql->fetch_object()){ ?>
+                        <tr>
+                            <td><?= $datos->id_persona?></td>
+                            <td><?= $datos->nombre?></td>
+                            <td><?= $datos->apellido?></td>
+                            <td><?= $datos->dni?></td>
+                            <td><?= $datos->fecha_nac?></td>
+                            <td><?= $datos->correo?></td>
+                            <td>
+                                <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                            </td>
 
-                    </tr>
+                        </tr>
+                    <?php }
+                    ?>
+
                 </tbody>
             </table>
         </div>
