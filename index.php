@@ -14,8 +14,12 @@
     <div class="container-fluid row">
 
         <!--Formulario de registro de personas-->
-        <form class="col-4" p-3>
+        <form class="col-4" p-3 method="POST">
             <h3 class="text-center text-secundary">Registro de personas</h3>
+            <?php
+            include "modelo/conexion.php";
+            include "controlador/registro_persona.php";
+            ?>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Nombre</label>
                 <input type="text" class="form-control" name="nombre">
@@ -36,13 +40,13 @@
 
                         <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" name="fecha">
+                <input type="date" class="form-control" name="fecha_nac">
                 
             </div>
 
                         <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Correo</label>
-                <input type="email" class="form-control" name="correo">
+                <input type="text" class="form-control" name="correo">
                 
             </div>
 
