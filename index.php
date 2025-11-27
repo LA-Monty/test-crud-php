@@ -11,6 +11,12 @@
 <body>
     
     <h1 class="text-center p-3">Hola mundo</h1>
+
+    <?php
+    include "modelo/conexion.php";
+    include "controlador/eliminar_persona.php";
+    ?>
+
     <div class="container-fluid row">
 
         <!--Formulario de registro de personas-->
