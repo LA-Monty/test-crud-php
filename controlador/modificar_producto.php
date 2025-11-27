@@ -24,3 +24,5 @@ if (!empty($_POST["btnregistrar"])){
 }
 
 ?>
+
+<!--Cambios necesarios para no joder el repositorio-->
