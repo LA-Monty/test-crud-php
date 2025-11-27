@@ -81,8 +81,9 @@
                             <td><?= $datos->fecha_nac?></td>
                             <td><?= $datos->correo?></td>
                             <td>
-                                <a href="" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                            <!--Para tomar el id del registro que deseo eliminar o modificar se usa ?id=<?= $datos->id_persona?> dentro del href-->
+                                <a href="modificar_producto.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="?id=<?= $datos->id_persona?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
 
                         </tr>
