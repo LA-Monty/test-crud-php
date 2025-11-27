@@ -24,3 +24,4 @@ if (!empty($_POST["btnregistrar"])){
 }
 
 ?>
+
