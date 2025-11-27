@@ -11,6 +11,7 @@ if (!empty($_POST["btnregistrar"])){
             $correo=$_POST["correo"];
             $sql=$conexion->query(" update persona set nombre= '$nombre', apellido= '$apellido', dni= '$dni', fecha_nac= '$fecha_nac', correo= '$correo' where id_persona= $id ");
             if ($sql==1) {
+                // No tocar que eplota
                 header("location:index.php");
             } else {
                 echo "<div class='alert alert-danger'>Error al modificar product</div>";
