@@ -11,6 +11,12 @@
 <body>
     
     <h1 class="text-center p-3">Hola mundo</h1>
+
+    <?php
+    include "modelo/conexion.php";
+    include "controlador/eliminar_persona.php";
+    ?>
+
     <div class="container-fluid row">
 
         <!--Formulario de registro de personas-->
@@ -83,7 +89,7 @@
                             <td>
                             <!--Para tomar el id del registro que deseo eliminar o modificar se usa ?id=<?= $datos->id_persona?> dentro del href-->
                                 <a href="modificar_producto.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="?id=<?= $datos->id_persona?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                <a href="index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
 
                         </tr>
