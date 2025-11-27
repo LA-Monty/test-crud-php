@@ -10,3 +10,6 @@ if (!empty($_GET["id"])) {
     }
 }
 ?>
+
+
+<!--Cambios necesarios para no joder el repositorio-->
