@@ -9,8 +9,13 @@
 
 </head>
 <body>
-    
-    <h1 class="text-center p-3">Hola mundo</h1>
+    <script>
+        function eliminar(){
+            var respuesta= confirm("¿Estas seguro de eliminar este registro?");
+            return respuesta;
+        }
+    </script>
+    <h1 class="text-center p-3">Sistema de registro de personas</h1>
 
     <?php
     include "modelo/conexion.php";
@@ -89,7 +94,7 @@
                             <td>
                             <!--Para tomar el id del registro que deseo eliminar o modificar se usa ?id=<?= $datos->id_persona?> dentro del href-->
                                 <a href="modificar_producto.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a href="index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                <a onclick="return eliminar()" href="index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
 
                         </tr>
