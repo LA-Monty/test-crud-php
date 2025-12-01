@@ -8,7 +8,6 @@ if (!empty($_POST["btningresar"])) {
         $usuario = $conexion->real_escape_string($_POST["usuario"]);
         $password = $_POST["password"];
         
-        /
         $sql = $conexion->query("SELECT * FROM usuarios WHERE usuario='$usuario'");
         
         if ($datos = $sql->fetch_object()) {
