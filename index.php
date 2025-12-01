@@ -1,112 +1,114 @@
+<?php
+session_start();
+if (empty($_SESSION["usuario"])) {
+    header("location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crud en php y html</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/5ba0145862.js" crossorigin="anonymous"></script>
-
+    <title>Libros</title>
 </head>
+
+
 <body>
+
     <script>
         function eliminar(){
             var respuesta= confirm("¿Estas seguro de eliminar este registro?");
             return respuesta;
         }
     </script>
-    <h1 class="text-center p-3">Sistema de registro de personas</h1>
 
+
+ <body class="bg-light">
+
+    <div class="offcanvas offcanvas-start show d-flex flex-column flex-shrink-0 p-3 bg-dark text-white d-none d-md-block" 
+         tabindex="-1" id="sidebar" style="width: 250px;">
+
+        <h4 class="text-center mb-4">Panel Admin</h4>
+
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item">
+                <a href="index.php" class="nav-link text-white"><i class="fa-solid fa-book"></i> Libreria</a>
+            </li>
+            <li>
+                <a href="autores.php" class="nav-link text-white"><i class="fa-solid fa-user"></i> Autores</a>
+            </li>
+            <li>
+                <a href="contacto.php" class="nav-link text-white"><i class="fa-solid fa-address-book"></i> Contacto</a>
+            </li>
+            <li>
+                <a href="solicitudes.php" class="nav-link text-white"><i class="fa-solid fa-envelope-open-text"></i> Solicitudes</a>
+            </li>
+        </ul>
+
+    </div>
+
+    <main class="container" style="margin-left: 260px;">
+        
     <?php
     include "modelo/conexion.php";
-    include "controlador/eliminar_persona.php";
+    include "controlador/eliminar_libro.php";
     ?>
+        <h1 class="mt-4">Lista de Libros</h1>
 
-    <div class="container-fluid row">
-
-        <!--Formulario de registro de personas-->
-        <form class="col-4" p-3 method="POST">
-            <h3 class="text-center text-secundary">Registro de personas</h3>
-            <?php
-            include "modelo/conexion.php";
-            include "controlador/registro_persona.php";
-            ?>
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                <input type="text" class="form-control" name="nombre">
-                
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Apellido </label>
-                <input type="text" class="form-control" name="apellido">
-                
-            </div>
-
-            <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Cedula</label>
-                <input type="text" class="form-control" name="dni">
-                
-            </div>
-
-                        <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Fecha de nacimiento</label>
-                <input type="date" class="form-control" name="fecha_nac">
-                
-            </div>
-
-                        <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Correo</label>
-                <input type="text" class="form-control" name="correo">
-                
-            </div>
-
-            <button type="submit" class="btn btn-primary" name="btnregistrar" value="ok">Registrar</button>
-        </form>
-
-        <!--Tabla de personas registradas-->
-        <div class="col-8 p-4">
+                <div class="col-11 p-4">
             <table class="table">
                 <thead class="bg-info">
                     <tr>
                         <th scope="col">ID</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido</th>
-                        <th scope="col">Cedula</th>
-                        <th scope="col">Fecha de nacimiento</th>
-                        <th scope="col">Correo</th>
-                        <th scope="col"></th>
+                        <th scope="col">Titulo</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Pub</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Avance</th>
+                        <th scope="col">Ventas Totales</th>
+                        <th scope="col">Notas</th>
+                        <th scope="col">Fecha Publicacion</th>
+                        <th scope="col">Contrato</th>
+                        <th></th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <!--Conexion con la base de datos y mostrar los registros existentes-->
                     <?php
                     include "modelo/conexion.php";
-                    $sql=$conexion->query("select * from persona");
+                    $sql=$conexion->query("select * from titulos");
                     while($datos=$sql->fetch_object()){ ?>
                         <tr>
-                            <td><?= $datos->id_persona?></td>
-                            <td><?= $datos->nombre?></td>
-                            <td><?= $datos->apellido?></td>
-                            <td><?= $datos->dni?></td>
-                            <td><?= $datos->fecha_nac?></td>
-                            <td><?= $datos->correo?></td>
+                            <td><?= $datos->id_titulo?></td>
+                            <td><?= $datos->titulo?></td>
+                            <td><?= $datos->tipo?></td>
+                            <td><?= $datos->id_pub?></td>
+                            <td><?= $datos->precio?></td>
+                            <td><?= $datos->avance?></td>
+                            <td><?= $datos->total_ventas?></td>
+                            <td><?= $datos->notas?></td>
+                            <td><?= $datos->fecha_pub?></td>
+                            <td><?= $datos->contrato?></td>
                             <td>
                             <!--Para tomar el id del registro que deseo eliminar o modificar se usa ?id=<?= $datos->id_persona?> dentro del href-->
-                                <a href="modificar_producto.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
-                                <a onclick="return eliminar()" href="index.php?id=<?= $datos->id_persona ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                            <a href="modificar_libro.php?id=<?= $datos->id_titulo ?>" class="btn btn-small btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+                            
+                            <a onclick="return eliminar()" href="index.php?id=<?= $datos->id_titulo ?>" class="btn btn-small btn-danger"><i class="fa-solid fa-trash"></i></a>
+                        
                             </td>
-
-                        </tr>
+                            </tr>
                     <?php }
                     ?>
 
                 </tbody>
             </table>
         </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    </main>
+                    <!--Luis Montoya 2023-0919-->
 </body>
 </html>
 
