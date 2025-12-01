@@ -1,4 +1,13 @@
-<div class="container-fluid ps-md-0">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css"> <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid ps-md-0">
   <div class="row g-0">
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
     <div class="col-md-8 col-lg-6">
@@ -6,33 +15,31 @@
         <div class="container">
           <div class="row">
             <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome back!</h3>
+              <h3 class="login-heading mb-4">Login de usuario</h3>
 
-              <!-- Sign In Form -->
-              <form>
+              <form method="POST">
+                
+                <?php
+                include "modelo/conexion.php";
+                include "controlador/login_usuario.php";
+                ?>
+
                 <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Email address</label>
+                  <input type="text" class="form-control" id="floatingInput" name="usuario" placeholder="Usuario">
+                  <label for="floatingInput">Usuario</label>
                 </div>
                 <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-                  <label for="floatingPassword">Password</label>
-                </div>
-
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                  <label class="form-check-label" for="rememberPasswordCheck">
-                    Remember password
-                  </label>
+                  <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                  <label for="password">Contraseña</label>
                 </div>
 
                 <div class="d-grid">
-                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
+                  <button class="btn btn-lg btn-dark btn-login text-uppercase fw-bold mb-2" type="submit" name="btningresar" value="ok">Entrar</button>
                   <div class="text-center">
-                    <a class="small" href="#">Forgot password?</a>
+                    <a class="small text-secondary" href="registro.php">Registrate Aqui</a>
                   </div>
                 </div>
-<!--Requerido para subir al repositorio remoto-->
+
               </form>
             </div>
           </div>
@@ -41,3 +48,5 @@
     </div>
   </div>
 </div>
+</body>
+</html>
