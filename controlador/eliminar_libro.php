@@ -2,7 +2,7 @@
 
 if (!empty($_GET["id"])) {
     $id=$_GET["id"];
-    $sql=$conexion->query("delete from persona where id_persona= $id ");
+    $sql=$conexion->query("delete from titulos where id_titulo= '$id'");
     if ($sql==1) {
         echo '<div class="alert alert-danger">Registro eliminado</div>';
     } else {
