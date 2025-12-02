@@ -1,0 +1,237 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2025-12-02T01:14:02.657Z",
+    "end": "2025-12-02T01:14:52.545Z",
+    "duration": 49888,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "808351e9-31b0-454e-954a-430fd81c1510",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d8415789-4582-4a2e-9e5f-672be0ed6f76",
+          "title": "Pruebas de CRUD: Modificar Libro",
+          "fullFile": "C:\\xampp\\htdocs\\proyectos-php\\test-crud-php\\pruebas-selenium\\test\\crud.test.js",
+          "file": "\\test\\crud.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Pruebas de CRUD: Modificar Libro\"",
+              "fullTitle": "Pruebas de CRUD: Modificar Libro \"before all\" hook in \"Pruebas de CRUD: Modificar Libro\"",
+              "timedOut": false,
+              "duration": 8986,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();\n\nawait driver.get(`${RUTA_BASE}/login.php`);\nawait driver.findElement(By.name('usuario')).sendKeys('SeleniumUser'); \nawait driver.findElement(By.name('password')).sendKeys('test1234');\nawait driver.findElement(By.name('btningresar')).click();\n\nawait driver.wait(until.titleIs('Libros'), 10000);",
+              "err": {},
+              "uuid": "fa0a9d03-b4f4-4ce4-85db-397fca35b95b",
+              "parentUUID": "d8415789-4582-4a2e-9e5f-672be0ed6f76",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Pruebas de CRUD: Modificar Libro\"",
+              "fullTitle": "Pruebas de CRUD: Modificar Libro \"after all\" hook in \"Pruebas de CRUD: Modificar Libro\"",
+              "timedOut": false,
+              "duration": 3686,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "9568e8be-afbe-420b-85d3-a7f0f43c668d",
+              "parentUUID": "d8415789-4582-4a2e-9e5f-672be0ed6f76",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "TC-03: Modificar Precio y Fecha de un Libro Existente",
+              "fullTitle": "Pruebas de CRUD: Modificar Libro TC-03: Modificar Precio y Fecha de un Libro Existente",
+              "timedOut": false,
+              "duration": 6573,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let botonEditar = await driver.findElement(By.css('.btn-warning'));\n        await botonEditar.click();\n        await driver.wait(until.elementLocated(By.name('titulo')), 5000);\n        await tomarCaptura('crud_formulario_carga');\n        let inputPrecio = await driver.findElement(By.name('precio'));\n        await inputPrecio.clear(); \n        await inputPrecio.sendKeys('4550'); \n        let inputFecha = await driver.findElement(By.name('fecha_pub'));\n        await inputFecha.sendKeys('02-12-2025'); // DD-MM-YYYY\n        await driver.findElement(By.name('btnregistrar')).click();\n        await driver.wait(until.titleIs('Libros'), 5000);\n        await tomarCaptura('crud_modificacion_exitosa');\n        let titulo = await driver.getTitle();\n        expect(titulo).to.equal('Libros');",
+              "err": {},
+              "uuid": "fc43f4d4-cc6e-4b8e-ae55-d1ca54770822",
+              "parentUUID": "d8415789-4582-4a2e-9e5f-672be0ed6f76",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "fc43f4d4-cc6e-4b8e-ae55-d1ca54770822"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6573,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        },
+        {
+          "uuid": "302d1716-10af-403e-b4bd-2a09324ca6d1",
+          "title": "Pruebas de Sistema: Login",
+          "fullFile": "C:\\xampp\\htdocs\\proyectos-php\\test-crud-php\\pruebas-selenium\\test\\login.test.js",
+          "file": "\\test\\login.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"Pruebas de Sistema: Login\"",
+              "fullTitle": "Pruebas de Sistema: Login \"before each\" hook in \"Pruebas de Sistema: Login\"",
+              "timedOut": false,
+              "duration": 4001,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "driver = await new Builder().forBrowser('chrome').build();",
+              "err": {},
+              "uuid": "95f42b3f-4aaa-4020-8e15-5dfab38c4857",
+              "parentUUID": "302d1716-10af-403e-b4bd-2a09324ca6d1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after each\" hook in \"Pruebas de Sistema: Login\"",
+              "fullTitle": "Pruebas de Sistema: Login \"after each\" hook in \"Pruebas de Sistema: Login\"",
+              "timedOut": false,
+              "duration": 3578,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "44c7cc9b-5804-4da2-a2e1-2dc9f05d21d8",
+              "parentUUID": "302d1716-10af-403e-b4bd-2a09324ca6d1",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "TC-01: Login Exitoso (Camino Feliz)",
+              "fullTitle": "Pruebas de Sistema: Login TC-01: Login Exitoso (Camino Feliz)",
+              "timedOut": false,
+              "duration": 7059,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(`${RUTA_PROYECTO}/login.php`);\n\nawait driver.findElement(By.name('usuario')).sendKeys('SeleniumUser');\nawait driver.findElement(By.name('password')).sendKeys('test1234'); \n\nawait driver.findElement(By.name('btningresar')).click();\n\nawait driver.wait(until.titleIs('Libros'), 5000);\n\nawait tomarCaptura('login_exitoso');\n\nlet titulo = await driver.getTitle();\nexpect(titulo).to.equal('Libros');",
+              "err": {},
+              "uuid": "e1c4ada1-4203-454e-9f54-e093da7068a4",
+              "parentUUID": "302d1716-10af-403e-b4bd-2a09324ca6d1",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC-02: Login Fallido (Contraseña Incorrecta)",
+              "fullTitle": "Pruebas de Sistema: Login TC-02: Login Fallido (Contraseña Incorrecta)",
+              "timedOut": false,
+              "duration": 5036,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(`${RUTA_PROYECTO}/login.php`);\n\nawait driver.findElement(By.name('usuario')).sendKeys('Lmontoya');\nawait driver.findElement(By.name('password')).sendKeys('clave_erronea');\n\nawait driver.findElement(By.name('btningresar')).click();\n\nlet alerta = await driver.wait(until.elementLocated(By.className('alert-danger')), 5000);\nlet textoAlerta = await alerta.getText();\n\nawait tomarCaptura('login_fallido');\n\nexpect(textoAlerta).to.include('Contraseña incorrecta');",
+              "err": {},
+              "uuid": "7ed6beb8-60a1-4694-86ba-8c6bcdd6e09a",
+              "parentUUID": "302d1716-10af-403e-b4bd-2a09324ca6d1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e1c4ada1-4203-454e-9f54-e093da7068a4",
+            "7ed6beb8-60a1-4694-86ba-8c6bcdd6e09a"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 12095,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 30000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "11.7.5"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "reporte-final",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.4"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reportes",
+        "reportFilename": "reporte-final"
+      },
+      "version": "6.3.2"
+    }
+  }
+}
