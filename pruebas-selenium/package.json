@@ -1,0 +1,20 @@
+{
+  "name": "pruebas-selenium",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+"scripts": {
+    "test": "mocha test/*.js --reporter mochawesome --reporter-options reportDir=reportes,reportFilename=reporte-final"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "chai": "^6.2.1",
+    "chromedriver": "^142.0.3",
+    "mocha": "^11.7.5",
+    "mochawesome": "^7.1.4",
+    "selenium-webdriver": "^4.38.0"
+  }
+}
